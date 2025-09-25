@@ -56,8 +56,21 @@ Phonatory Output Module/
   ```
   Output will be saved as `output_voice.wav`.
 
-- **Advanced TTS and Vocoder:**
-  See `Coqui_TTS/README.md` for full usage, training, and inference options.
+- **Advanced TTS and Phonatory Processing:**
+  Use the main entry point for full-featured synthesis and vocal tract simulation:
+  ```sh
+  python phonitory_output_module.py
+  ```
+  This will synthesize a demo phrase and log diagnostics to `synthesis.log`.
+
+  To use programmatically:
+  ```python
+  from phonitory_output_module import PhonatoryOutputModule
+  emitter = PhonatoryOutputModule()
+  out_path = emitter.phonate("Your text here.")
+  emitter.diagnostics()
+  ```
+  See the `phonate` docstring for advanced options (pitch, formant, articulation, nasalization).
 
 - **Custom Phonatory Modules:**
   Import and use modules like `formant_filter.py`, `larynx_sim.py`, etc., in your own scripts.
@@ -79,7 +92,7 @@ Or run individual scripts in the `tests/` directory.
 Contributions are welcome! Please open issues or pull requests. See `CONTRIBUTING.md` in `Coqui_TTS` for guidelines.
 
 ## License
-- POM code: [Your License Here]
+- POM code: MIT (see LICENSE)
 - Coqui_TTS: [MPL 2.0](https://opensource.org/licenses/MPL-2.0)
 
 ## Further Documentation
